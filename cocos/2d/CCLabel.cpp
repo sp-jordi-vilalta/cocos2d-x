@@ -932,7 +932,7 @@ bool Label::updateQuads()
             }
 
             auto lineIndex = _lettersInfo[ctr].lineIndex;
-            auto px = _lettersInfo[ctr].positionX + letterDef.width/2 * _bmfontScale + _linesOffsetX[lineIndex];
+            auto px = _lettersInfo[ctr].positionX + letterDef.width * _bmfontScale / CC_CONTENT_SCALE_FACTOR() + _linesOffsetX[lineIndex];
 
             if(_labelWidth > 0.f){
                 if (this->isHorizontalClamped(px, lineIndex)) {

@@ -310,13 +310,14 @@ bool Label::isVerticalClamp()
 bool Label::isHorizontalClamp()
 {
     bool letterClamp = false;
+    auto contentScaleFactor = CC_CONTENT_SCALE_FACTOR();
     for (int ctr = 0; ctr < _lengthOfString; ++ctr)
     {
         if (_lettersInfo[ctr].valid)
         {
             auto& letterDef = _fontAtlas->_letterDefinitions[_lettersInfo[ctr].utf32Char];
 
-            auto px = _lettersInfo[ctr].positionX + letterDef.width/2 * _bmfontScale;
+            auto px = _lettersInfo[ctr].positionX + letterDef.width * _bmfontScale / contentScaleFactor;
             auto lineIndex = _lettersInfo[ctr].lineIndex;
 
             if(_labelWidth > 0.f){
