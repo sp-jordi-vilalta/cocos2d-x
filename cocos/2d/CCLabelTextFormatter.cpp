@@ -241,8 +241,8 @@ bool Label::multilineTextWrap(const std::function<int(const std::u32string&, int
 
             if (tokenHighestY < letterPosition.y)
                 tokenHighestY = letterPosition.y;
-            if (tokenLowestY > letterPosition.y - letterDef.height * _bmfontScale)
-                tokenLowestY = letterPosition.y - letterDef.height * _bmfontScale;
+            if (tokenLowestY > letterPosition.y - letterDef.height * _bmfontScale / contentScaleFactor)
+                tokenLowestY = letterPosition.y - letterDef.height * _bmfontScale / contentScaleFactor;
         }
 
         if (newLine)
